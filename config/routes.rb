@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :create, :update]
   
   resources :events
+  resources :folders
+  resources :companies
  end

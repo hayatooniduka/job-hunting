@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_08_142948) do
+ActiveRecord::Schema.define(version: 2021_11_18_013637) do
+
+  create_table "companies", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "founded"
+    t.string "philosophy"
+    t.string "number"
+    t.text "content"
+    t.string "time"
+    t.string "rival"
+    t.string "remarks"
+    t.bigint "folder_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["folder_id"], name: "index_companies_on_folder_id"
+  end
 
   create_table "events", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
@@ -22,6 +37,14 @@ ActiveRecord::Schema.define(version: 2021_11_08_142948) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "folders", charset: "utf8mb4", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_folders_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -30,5 +53,7 @@ ActiveRecord::Schema.define(version: 2021_11_08_142948) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "companies", "folders"
   add_foreign_key "events", "users"
+  add_foreign_key "folders", "users"
 end
