@@ -1,13 +1,16 @@
 <h1><%= @company.name %>の詳細ページ</h1>
 
-<table class="table table-striped">
-    <tr><td>企業名</td><td><%= @company.name %></td></tr>
-    <tr><td>設立</td><td><%= @company.founded %></td></tr>
-    <tr><td>理念</td><td><%= @company.philosophy %></td></tr>
-    <tr><td>従業員数</td><td><%= @company.number %></td></tr>
-    <tr><td>事業内容</td><td><%= @company.content %></td></tr>
-    <tr><td>募集期間</td><td><%= @company.time %></td></tr>
-    <tr><td>ライバル企業</td><td><%= @company.rival %></td></tr>
-    <tr><td>備考</td><td><%= @company.remarks %></td></tr>
+<table class="table">
+    <tr><td>企業名:</td><td><%= @company.name %></td></tr>
+    <tr><td>設立:</td><td><%= @company.founded %></td></tr>
+    <tr><td>理念:</td><td><%= @company.philosophy %></td></tr>
+    <tr><td>従業員数:</td><td><%= @company.number %></td></tr>
+    <tr><td>事業内容:</td><td><%= @company.content %></td></tr>
+    <tr><td>募集期間:</td><td><%= @company.time %></td></tr>
+    <tr><td>ライバル企業:</td><td><%= @company.rival %></td></tr>
+    <tr><td>備考:</td><td><%= @company.remarks %></td></tr>
     
 </table>
+
+<h7><%= link_to '情報変更', edit_company_path, class: 'btn btn-primary btn-sm'%></h7><br>
+<h7><%= link_to 'この会社情報を削除する', @company, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger btn-sm' %></h7>

@@ -1,6 +1,9 @@
-<p>Company index</p>
+<h1><%= @folder.title %></h1>
 <% @companies.each do |company| %>
     <div>
         <li><%= link_to company.name, company_path(company) %></li>
     </div>
 <% end %>
+<%= link_to '新規会社の追加', new_company_path %><br>
+
+<h7><%= link_to "このフォルダーを削除する", @folder, method: :delete, data: { confirm: "本当に削除しますか？"}, class: 'btn btn-danger btn-sm' %></h7>

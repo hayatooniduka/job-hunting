@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
   def new
     @user = User.new
   end
@@ -14,12 +13,6 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'ユーザの登録に失敗しました'
       render :new
     end
-  end
-
-  def edit
-  end
-
-  def update
   end
   
   private

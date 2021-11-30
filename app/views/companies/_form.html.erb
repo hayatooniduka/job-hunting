@@ -1,49 +1,55 @@
-<%= form_with(model: company) do |f| %>
-    <%= render 'layouts/error_messages', model: company %>
-    
-    <div class="name">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+<div class="row">
+    <div class = "col-sm-6 offset-sm-3">
+        
+        <%= form_with(model: company) do |f| %>
+            <%= render 'layouts/error_messages', model: company %>
+            
+            <div class="mb-3">
+                <%= f.label :name, '企業名' %>
+                <%= f.text_field :name, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :founded, '設立' %>
+                <%= f.text_field :founded, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :philosophy, '企業理念' %>
+                <%= f.text_field :philosophy, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :number, '従業員数' %>
+                <%= f.text_field :number, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :content, '事業内容' %>
+                <%= f.text_field :content, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :time, '募集時期' %>
+                <%= f.text_field :time, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :rival, 'ライバル企業' %>
+                <%= f.text_field :rival, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <%= f.label :remarks, '備考' %>
+                <%= f.text_field :remarks, class: 'form-control' %>
+            </div>
+            
+            <div class="mb-3">
+                <p>Folder <%= collection_select :company, :folder_id, Folder.all, :id, :title %></p>
+            </div>
+            
+            <%= f.submit 'Submit', class: 'btn btn-primary w-100' %>
+            
+        <% end %>
     </div>
-    
-    <div class="founded">
-        <%= f.label :founded %>
-        <%= f.text_field :founded %>
-    </div>
-    
-    <div class="philosophy">
-        <%= f.label :philosophy %>
-        <%= f.text_field :philosophy %>
-    </div>
-    
-    <div class="number">
-        <%= f.label :number %>
-        <%= f.text_field :number %>
-    </div>
-    
-    <div class="content">
-        <%= f.label :content %>
-        <%= f.text_field :content %>
-    </div>
-    
-    <div class="time">
-        <%= f.label :time %>
-        <%= f.text_field :time %>
-    </div>
-    
-    <div class="rival">
-        <%= f.label :rival %>
-        <%= f.text_field :rival %>
-    </div>
-    
-    <div class="remarks">
-        <%= f.label :remarks %>
-        <%= f.text_field :remarks %>
-    </div>
-    
-    <p>Folder <%= collection_select :company, :folder_id, Folder.all, :id, :title %></p>
-    
-    <div class ="submit">
-        <%= f.submit %>
-    </div>
-<% end %>
+</div>

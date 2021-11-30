@@ -3,5 +3,5 @@ class Folder < ApplicationRecord
   
   validates :title, presence: true, length: { maximum: 255 }
   
-  has_many :companies
+  has_many :companies, dependent: :destroy
 end

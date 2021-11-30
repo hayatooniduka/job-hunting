@@ -1,10 +1,9 @@
-<h1>フォルダー一覧</h1>
+<h1>フォルダ一覧</h1>
 
 <ul>
     <% @folders.each do |folder| %>
         <li><%= link_to folder.title, folder_path(folder) %></li>
-        <div>
-            <%= link_to "Delete", folder, method: :delete, data: { confirm: "You sure?"}, class: 'btn btn-danger btn-sm' %>
-        </div>
     <% end %>
 </ul>
+<%= link_to 'フォルダー追加', new_folder_path %><br>
+<%= link_to '新規会社の追加', new_company_path %>

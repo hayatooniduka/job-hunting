@@ -1,6 +1,6 @@
 class FoldersController < ApplicationController
     before_action :require_user_logged_in
-    before_action :correct_user, only: [:destroy]
+    
     
     def index
         @folders = current_user.folders.all
@@ -28,6 +28,7 @@ class FoldersController < ApplicationController
     end
     
     def destroy
+        @folder = Folder.find(params[:id])
         @folder.destroy
         flash[:success] = 'フォルダーを削除しました'
         redirect_to root_url
@@ -48,7 +49,8 @@ class FoldersController < ApplicationController
     def correct_user
         @folder = current_user.folders.find_by(id: params[:id])
         unless @folder
-            redirect_to root_url
+          redirect_to root_url
         end
     end
+    
 end
